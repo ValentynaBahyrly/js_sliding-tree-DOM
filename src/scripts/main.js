@@ -5,7 +5,7 @@ const lis = tree.querySelectorAll('li');
 
 for (const li of lis) {
   for (const node of li.childNodes) {
-    if (node.nodeType === 3) {
+    if (node.nodeType === 3 && node.textContent.trim() !== '') {
       const span = document.createElement('span');
 
       node.after(span);
