@@ -4,11 +4,14 @@ const tree = document.querySelector('.tree');
 const lis = tree.querySelectorAll('li');
 
 for (const li of lis) {
-  const textNode = li.firstChild;
-  const span = document.createElement('span');
+  for (const node of li.childNodes) {
+    if (node.nodeType === 3) {
+      const span = document.createElement('span');
 
-  span.append(textNode);
-  li.prepend(span);
+      node.after(span);
+      span.append(node);
+    }
+  }
 }
 
 tree.addEventListener('click', function (e) {
